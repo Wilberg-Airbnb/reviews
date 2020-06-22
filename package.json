@@ -9,13 +9,18 @@
   },
   "scripts": {
     "react": "webpack -d --watch",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "test": "jest --watch *.js",
+    "enzymetest": "react-scripts test --env=jsdom",
+    "seed": "node server/seed.js"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.2",
+    "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.5.0",
     "chance": "^1.1.6",
+    "enzyme": "^3.11.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "jquery": "^3.5.1",
@@ -25,6 +30,7 @@
     "path": "^0.12.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-scripts": "^3.4.1",
     "reactstrap": "^8.4.1",
     "styled-components": "^5.1.1"
   },
@@ -35,6 +41,7 @@
     "babel-loader": "^8.1.0",
     "css-loader": "^3.6.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^26.0.1",
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"

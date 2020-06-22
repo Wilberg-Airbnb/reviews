@@ -1,10 +1,10 @@
-var mysql = requrie('mysql');
+var mysql = require('mysql');
 const {password} = require('./config.js')
 
 dbConnection = mysql.createConnection({
   user:'root',
   password:password,
-  database:'suggestPlace'
+  database:'airbnb'
 });
 
 dbConnection.connect(err =>{
@@ -12,6 +12,8 @@ dbConnection.connect(err =>{
     console.log(err);
     return;
   } else {
-    console.log('database connected');
+    console.log('mysql database connected');
   }
 })
+
+module.exports.dbConnection= dbConnection
