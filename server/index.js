@@ -44,11 +44,13 @@ app.get('/api/reviews/:listingId',(req,res) =>{
 app.get('/api/suggestions/:listingId',(req,res) =>{
   const listingId = req.params.listingId;
   let listArr=[Number(listingId)];
-  let lists = [];
 
-  for(let i = 0 ; i<100;i++){
-    lists.push(i)
-  };
+  // let lists = [];
+  // for(let i = 0 ; i<100;i++){
+  //   lists.push(i)
+  // };
+
+  let lists = new Array(100).fill(null).map((ele,idx) =>{return idx})
 
   lists.splice(listingId,1);
 
