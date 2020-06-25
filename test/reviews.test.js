@@ -43,5 +43,10 @@ describe('server endpoints Test',()=>{
     expect(JSON.parse(response.text).length).toEqual(12);
     expect(JSON.parse(response.text)[0].listingId).toEqual(expect.any(Number))
   })
+
+  test("it should get average review score for array of listIds requested as req.query.array", async() =>{
+    const response = await request(app).get("/api/reviews/?array=[1,2]");
+    expect(JSON.parse(response.text)).toEqual(expect.any(Number))
+  })
 })
 
