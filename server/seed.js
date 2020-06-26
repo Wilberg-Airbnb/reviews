@@ -164,5 +164,8 @@ fs.writeFile(__dirname+'/dummyData2.txt', JSON.stringify(seed2), err =>{
   }
 })
 
+
+module.exports.generateSeed= generateSeed;
+module.exports.generateSeed2=generateSeed2;
 module.exports.seed = seed;
 module.exports.seed2 = seed2;

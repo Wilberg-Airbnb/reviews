@@ -34,4 +34,3 @@ CREATE TABLE reviews (
   value INT(20),
   average DECIMAL(10,2)
 );
-
