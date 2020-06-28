@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 const {password} = require('./config.js')
 
-dbConnection = mysql.createConnection({
+var dbConnection = mysql.createConnection({
   user:'root',
   password:password,
   database:'airbnb'

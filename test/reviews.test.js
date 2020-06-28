@@ -1,12 +1,12 @@
-const {dbConnection} = require('../MYSQL/index.js');
+// const {dbConnection} = require('../MYSQL/index.js');
 const request = require('supertest')
 const {app} = require('../server/index.js');
-const {generateSeed,generateSeed2} = require('../server/seed.js')
+// const {generateSeed,generateSeed2} = require('../server/seed.js')
 
 
 
 
-describe('dummy data generation seed Test',() =>{
+xdescribe('dummy data generation seed Test',() =>{
 
   test('generate reviews information for 100 listingId',async() =>{
     const reviewSeed = await generateSeed();
