@@ -3,7 +3,7 @@ const PORT = 3000;
 const {dbConnection} = require('../MYSQL/index.js');
 const faker = require('faker');
 const morgan = require('morgan');
-
+const path = require('path');
 
 const app = express();
 app.use(express.static('public/dist'));
@@ -14,6 +14,7 @@ app.use(morgan('dev'))
 
 app.get('/api/reviews/:listingId',(req,res) =>{
 
+  console.log('received request')
 
   if(req.query.type=== 'review'){
     let listingId= req.params.listingId;
@@ -110,6 +111,16 @@ app.get('/api/reviews',(req,res) =>{
       console.log(err);
     })
   }
+})
+
+app.get('/:listingId',(req,res) =>{
+  if(req.params.listingId> 99){
+    res.sendStatus(404);
+  }
+
+  var currentPage = path.join(__dirname, '../public/dist/index.html');
+
+  res.sendFile(currentPage)
 })
 
 module.exports.app = app;
