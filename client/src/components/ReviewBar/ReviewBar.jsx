@@ -3,18 +3,19 @@ import React from 'react';
 import styled from 'styled-components';
 import ProgressBar from '../ProgressBar/ProgressBar.jsx';
 
-const ReviewContainer = styled.div`
+const ReviewsContainer = styled.div`
       display:grid;
       grid-template-columns:auto auto;
-      padding:10px;
       margin-bottom:15px;
+      grid-column-gap:8%;
+      align-items: end;
 `;
 const ReviewBar = (props) => {
   const reviews = props.reviews;
 
   if (reviews.length > 1) {
     return (
-      <ReviewContainer>
+      <ReviewsContainer>
         <ProgressBar name={'Cleanliness'} score={reviews.reduce((a,b) => {
       return a+b.cleanliness
     },0)/reviews.length}></ProgressBar>
@@ -33,7 +34,7 @@ const ReviewBar = (props) => {
         <ProgressBar name={'Value'} score={reviews.reduce((a,b) => {
       return a+b.value
     },0)/reviews.length}></ProgressBar>
-      </ReviewContainer>
+      </ReviewsContainer>
     )
   }else{
     return null

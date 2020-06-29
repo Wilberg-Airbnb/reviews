@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import styled from 'styled-components';
 
 import Modal from '../Modal/Modal.jsx';
 import Profile from '../Profile/Profile.jsx';
@@ -7,6 +8,19 @@ import AverageReview from '../AverageReview/AverageReview.jsx';
 import ReviewBar from '../ReviewBar/ReviewBar.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
 
+
+const Appcontainer = styled.div`
+      margin: 0% 20% 0%
+    `;
+
+const Button = styled.button`
+  padding:15px 25px;
+  border-radius: 10px;
+  border-style:solid;
+  background-color:white;
+  font-weight:bold;
+
+`;
 
 class App extends React.Component {
   constructor(props){
@@ -58,7 +72,8 @@ class App extends React.Component {
 
   render(){
     return(
-      <div>
+
+        <Appcontainer>
         {this.state.modalOpen ?
           <Modal>
             <Profile modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal}/>
@@ -68,8 +83,10 @@ class App extends React.Component {
         <AverageReview average ={this.state.average} numbers ={this.state.reviews.length}></AverageReview>
         <ReviewBar reviews ={this.state.reviews}></ReviewBar>
         <Reviews reviews ={this.state.reviews}></Reviews>
-        <button onClick={this.toggleModal}>Show all reviews</button>
-      </div>
+        <Button onClick={this.toggleModal}>{`Show all ${this.state.reviews.length} reviews`}</Button>
+
+        </Appcontainer>
+
     )
   }
 }
