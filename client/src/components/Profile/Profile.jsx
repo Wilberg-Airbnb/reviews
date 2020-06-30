@@ -1,11 +1,11 @@
 import React from 'react';
-// import './Profile.css';
-import { ListGroup, ListGroupItem } from 'reactstrap';
-
 import styled from 'styled-components';
+import Review from '../Review/Review.jsx';
+import AverageReview from '../AverageReview/AverageReview.jsx';
+import ReviewBar from '../ReviewBar/ReviewBar.jsx';
 
 const ProfileModal = styled.div`
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(0,0,0,0.3);
   position:fixed;
   height:100%;
   width:100%;
@@ -17,27 +17,70 @@ const ProfileModal = styled.div`
 `;
 
 const Container = styled.div`
-  height:40%;
-  width:30%;
-  border-style: solid;
+  height:93%;
+  width:60%;
   background-color: white;
+  border-radius:15px 15px 0px 15px;
+  padding:2rem 0rem 1rem 2rem;
 `;
 
-const Profile = ({modalOpen, toggleModal}) =>{
-return (
-  <ProfileModal>
-    <Container>
-    <ListGroup >
-      <ListGroupItem>Cras justo odio</ListGroupItem>
-      <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-      <ListGroupItem>Morbi leo risus</ListGroupItem>
-      <ListGroupItem>Porta ac consectetur ac</ListGroupItem>
-      <ListGroupItem>Vestibulum at eros</ListGroupItem>
-    </ListGroup>
-    <button onClick={toggleModal}>Click to untoggle</button>
-    </Container>
-  </ProfileModal>
-)
+const ReviewContainer = styled.div`
+  display:flex;
+
+`;
+
+const Close = styled.div`
+  margin-bottom:1em;
+  display:inline-block;
+  &:hover{
+    cursor:pointer
+  };
+`;
+
+const ReviewScore=styled.div`
+  width:40%;
+  margin-bottom:2rem;
+  padding-right:6rem;
+`;
+
+
+const ReviewDisplay=styled.div`
+  width:60%;
+  max-height:950px;
+  position:relative;
+  bottom:0;
+  overflow-y:scroll;
+  scrollbar-color:#f1f1f1;
+  scrollbar-width:thick;
+`;
+
+//fix close problem
+
+const Profile = ({modalOpen, toggleModal,reviews,average,numbers}) =>{
+
+ if(reviews){
+  return (
+    <ProfileModal onClick={toggleModal}>
+      <Container>
+        <Close onClick={toggleModal}>X</Close>
+        <ReviewContainer>
+          <ReviewScore>
+            <AverageReview average= {average} numbers={numbers} big={true}/>
+            <ReviewBar reviews ={reviews} reviewmodal ={true}></ReviewBar>
+          </ReviewScore>
+          <ReviewDisplay>
+            {reviews.map((review,idx)=>{
+              return <Review review = {review} key={idx}/>
+            })}
+          </ReviewDisplay>
+        </ReviewContainer>
+      </Container>
+    </ProfileModal>
+  )
+ }else{
+   return null
+ }
+
 }
 
 export default Profile;

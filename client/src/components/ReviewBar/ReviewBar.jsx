@@ -5,9 +5,9 @@ import ProgressBar from '../ProgressBar/ProgressBar.jsx';
 
 const ReviewsContainer = styled.div`
       display:grid;
-      grid-template-columns:auto auto;
+      grid-template-columns:${({reviewmodal})=> reviewmodal? 'auto' : 'auto auto'};
       margin-bottom:15px;
-      grid-column-gap:8%;
+      grid-column-gap:${({reviewmodal})=> reviewmodal? '0%' : '8%'};
       align-items: end;
 `;
 const ReviewBar = (props) => {
@@ -15,7 +15,7 @@ const ReviewBar = (props) => {
 
   if (reviews.length > 1) {
     return (
-      <ReviewsContainer>
+      <ReviewsContainer reviewmodal={props.reviewmodal}>
         <ProgressBar name={'Cleanliness'} score={reviews.reduce((a,b) => {
       return a+b.cleanliness
     },0)/reviews.length}></ProgressBar>

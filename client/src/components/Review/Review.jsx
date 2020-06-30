@@ -13,8 +13,8 @@ const Profile = styled.div`
 
 const Image = styled.img`
   vertical-align:middle;
-  width:50px;
-  height:50px;
+  width:60px;
+  height:60px;
   border-radius:50%;
   margin-right: 5px;
 `;
@@ -33,11 +33,17 @@ const Nameinfo = styled.div`
 const Span = styled.span`
   font-weight:bold;
   text-decoration: underline;
+  font-size:16px;
 
   &:hover{
     cursor:pointer;
   }
   `;
+
+const textStyles ={
+  fontWeight:'bold',
+  fontSize:'14px'
+}
 
 class Review extends React.Component {
   constructor(props){
@@ -46,7 +52,7 @@ class Review extends React.Component {
     this.state = {
       hidden: false,
       comments:this.props.review.comments,
-      firstname:this.props.review.firstname,
+      firstname:this.props.review.firstName,
       avatarURL:this.props.review.avatarURL,
       createdAt:this.props.review.createdAt
     }
@@ -68,7 +74,7 @@ class Review extends React.Component {
         <Profile>
           <Image src={this.state.avatarURL}></Image>
           <Nameinfo>
-            <h1>{this.state.firstName}</h1>
+            <h1 style={textStyles}>{this.state.firstname}</h1>
             <h1>{this.state.createdAt}</h1>
           </Nameinfo>
         </Profile>
@@ -76,12 +82,8 @@ class Review extends React.Component {
         <Comments>{this.state.comments}</Comments>
         : <Comments>{`${this.state.comments.slice(0,100)}...`}<Span onClick ={this.readmore}>read more</Span></Comments>
         }
-
-
-
       </ReviewContainer>
     )
-
   }
 }
 

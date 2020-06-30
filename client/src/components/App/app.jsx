@@ -7,10 +7,10 @@ import Profile from '../Profile/Profile.jsx';
 import AverageReview from '../AverageReview/AverageReview.jsx';
 import ReviewBar from '../ReviewBar/ReviewBar.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
-
+import $ from 'jquery';
 
 const Appcontainer = styled.div`
-      margin: 0% 20% 0%
+      margin: 7% 20% 0%
     `;
 
 const Button = styled.button`
@@ -19,6 +19,10 @@ const Button = styled.button`
   border-style:solid;
   background-color:white;
   font-weight:bold;
+
+  &:hover{
+    filter:brightness(85%);
+  }
 
 `;
 
@@ -55,9 +59,12 @@ class App extends React.Component {
   };
 
   toggleModal(){
+    console.log('clicked');
     this.setState(prevState =>({
       modalOpen: !prevState.modalOpen
-    }))
+    }),()=>{
+      console.log(this.state.modalOpen);
+    })
   };
 
   getAverage (){
@@ -76,12 +83,12 @@ class App extends React.Component {
         <Appcontainer>
         {this.state.modalOpen ?
           <Modal>
-            <Profile modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal}/>
+            <Profile modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal} reviews = {this.state.reviews} average ={this.state.average} numbers ={this.state.reviews.length}/>
           </Modal>
           :null
         }
         <AverageReview average ={this.state.average} numbers ={this.state.reviews.length}></AverageReview>
-        <ReviewBar reviews ={this.state.reviews}></ReviewBar>
+        <ReviewBar reviews ={this.state.reviews} reviewmodal ={false}></ReviewBar>
         <Reviews reviews ={this.state.reviews}></Reviews>
         <Button onClick={this.toggleModal}>{`Show all ${this.state.reviews.length} reviews`}</Button>
 
