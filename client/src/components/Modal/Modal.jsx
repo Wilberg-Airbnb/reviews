@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import styled from 'styled-components';
 
-const modalRoot= document.getElementById('modal-root');
+const modalRoot= document.getElementById('reviewmodal-root');
 
 const ModalRoot = styled.div`
   position:relative;
@@ -12,7 +12,7 @@ const ModalRoot = styled.div`
 class Modal extends React.Component{
   constructor(props){
     super(props);
-    this.el = document.createElement('ModalRoot');
+    this.el = document.createElement('ReviewModalRoot');
   }
 
   componentDidMount() {

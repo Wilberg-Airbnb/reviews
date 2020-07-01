@@ -5,6 +5,7 @@ const ReviewScore = styled.div`
   display:flex;
   justify-content:space-between;
   margin-bottom:1.5rem;
+  align-items: center;
 `;
 
 const Progress = styled.div`
@@ -24,7 +25,8 @@ const Bar = styled.div`
 `;
 
 const Name = styled.div`
-  font-size:14px;
+  font-size:16px;
+  text-align:center;;
 `;
 
 const Score=styled.div`
@@ -33,6 +35,7 @@ const Score=styled.div`
 
 const Separator= styled.div`
   display:flex;
+  align-items: center;
 `;
 
 

@@ -45,7 +45,7 @@ class App extends React.Component {
 
   componentDidMount(){
 
-    axios.get(`http://localhost:3000/api/reviews/${this.state.listingId}`).then(res =>{
+    axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}`).then(res =>{
 
       this.setState({
         reviews: res.data
@@ -68,7 +68,7 @@ class App extends React.Component {
   };
 
   getAverage (){
-    axios.get(`http://localhost:3000/api/reviews/${this.state.listingId}?type=review`).then(res =>{
+    axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}?type=review`).then(res =>{
       this.setState({
         average : res.data
       })
