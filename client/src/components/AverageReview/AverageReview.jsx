@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const ReviewContainer=styled.div`
   display:flex;
   align-items:center;
+  margin-bottom:2rem;
 `;
 
 const Star = styled.div`
