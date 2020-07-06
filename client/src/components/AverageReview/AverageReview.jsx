@@ -9,7 +9,7 @@ const ReviewContainer=styled.div`
 `;
 
 const Star = styled.div`
-  background: #E75480;
+  background: #FF385C;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   display: inline-block;
   height: ${({big})=> big? '30px' : '15px'};

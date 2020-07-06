@@ -82,7 +82,7 @@ class App extends React.Component {
 
         <Appcontainer>
         {this.state.modalOpen ?
-          <Modal>
+          <Modal onClick={this.toggleModal}>
             <Profile modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal} reviews = {this.state.reviews} average ={this.state.average} numbers ={this.state.reviews.length}/>
           </Modal>
           :null

@@ -78,7 +78,7 @@ function generateSeed2(){
       numberOfBeds : faker.random.number({min:0,max:3}),
       placeName: faker.lorem.word(),
       price: faker.finance.amount(40,250,2),
-      pictureURL:'https://source.unsplash.com/320x240/?houses'
+      pictureURL:`https://source.unsplash.com/320x240/?houses/${i}`
     }
 
     seed2.push(obj)
@@ -143,9 +143,9 @@ fs.writeFile(__dirname+'/dummyData2.txt', JSON.stringify(seed2), err =>{
     for(let i = 0; i<seed2.length; i++){
       let place = seed2[i];
 
-      let {listingId,roomtype,numberOfBeds,placeName,price,pictureURl} = place;
+      let {listingId,roomtype,numberOfBeds,placeName,price,pictureURL} = place;
 
-      let queryArgs =[listingId,roomtype,numberOfBeds,placeName,price,pictureURl]
+      let queryArgs =[listingId,roomtype,numberOfBeds,placeName,price,pictureURL]
 
       seed2Promises.push(new Promise((resolve,reject) =>{
         dbConnection.query('INSERT INTO suggestions (listingId,roomtype,numbOfBedrooms,placeName,price,pictureURL) VALUES (?,?,?,?,?,?)',queryArgs,(err,results) =>{
