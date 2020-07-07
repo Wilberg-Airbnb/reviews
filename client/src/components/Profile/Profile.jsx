@@ -35,6 +35,7 @@ const Close = styled.div`
   &:hover{
     cursor:pointer
   };
+  boder-style:solid;
 `;
 
 const ReviewScore=styled.div`
@@ -60,7 +61,7 @@ const Profile = ({modalOpen, toggleModal,reviews,average,numbers}) =>{
 
  if(reviews){
   return (
-    <ProfileModal onClick={toggleModal}>
+    <ProfileModal>
       <Container>
         <Close onClick={toggleModal}>X</Close>
         <ReviewContainer>

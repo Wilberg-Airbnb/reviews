@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Wilberg-Airbnb/reviews
+  - https://github.com/Wilberg-Airbnb/reservation
+  - https://github.com/Wilberg-Airbnb/location
+  - https://github.com/Wilberg-Airbnb/description
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## Usage
 
-> Some usage instructions
+> run mysql -u root -p < MYSQL/schema.sql to seed the data into database then run command line: npm run server to start the server and npm run react to compile the jsx files.
 
 ## Requirements
 
