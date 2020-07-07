@@ -29,8 +29,8 @@ const Button = styled.button`
 class App extends React.Component {
   constructor(props){
     super(props);
-
-    this.requestedId = JSON.parse(window.location.href.split('/')[3]);
+    // console.log(window.location.pathname.slice(1,-1))
+    this.requestedId = JSON.parse(window.location.pathname.slice(1,-1));
 
     this.state ={
       modalOpen:false,
