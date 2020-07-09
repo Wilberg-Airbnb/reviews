@@ -27,6 +27,7 @@ const Comments = styled.div`
 const Nameinfo = styled.div`
   & > h1{
     font-size:12px;
+    font-weight:normal;
   }
 `;
 
@@ -54,7 +55,8 @@ class Review extends React.Component {
       comments:this.props.review.comments,
       firstname:this.props.review.firstName,
       avatarURL:this.props.review.avatarURL,
-      createdAt:this.props.review.createdAt
+      createdAt:this.props.review.createdAt,
+      date : new Date(this.props.review.createdAt)
     }
 
     this.readmore = this.readmore.bind(this);
@@ -68,6 +70,7 @@ class Review extends React.Component {
 
 
   render() {
+    var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
     return (
       <ReviewContainer>
@@ -75,7 +78,7 @@ class Review extends React.Component {
           <Image src={this.state.avatarURL}></Image>
           <Nameinfo>
             <h1 style={textStyles}>{this.state.firstname}</h1>
-            <h1>{this.state.createdAt}</h1>
+            <h1>{`${months[this.state.date.getMonth()]} ${this.state.date.getFullYear()}`}</h1>
           </Nameinfo>
         </Profile>
         {this.state.hidden?
