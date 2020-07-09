@@ -6,7 +6,6 @@ const modalRoot= document.getElementById('reviewmodal-root');
 
 const ModalRoot = styled.div`
   position:relative;
-  z-index:999;
 `;
 
 class Modal extends React.Component{
