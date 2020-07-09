@@ -1,4 +1,4 @@
-import { Progress } from 'reactstrap';
+// import { Progress } from 'reactstrap';
 import React from 'react';
 import styled from 'styled-components';
 import ProgressBar from '../ProgressBar/ProgressBar.jsx';

@@ -22,6 +22,7 @@ const Button = styled.button`
 
   &:hover{
     filter:brightness(85%);
+    cursor:pointer;
   }
 
 `;
@@ -41,6 +42,7 @@ class App extends React.Component {
 
     this.toggleModal = this.toggleModal.bind(this);
     this.getAverage = this.getAverage.bind(this);
+    this.handleOutsideClick=this.handleOutsideClick.bind(this);
   }
 
   componentDidMount(){
@@ -60,12 +62,27 @@ class App extends React.Component {
 
   toggleModal(){
     console.log('clicked');
-    this.setState(prevState =>({
+    // this.setState(prevState =>({
+    //   modalOpen: !prevState.modalOpen
+    // }),()=>{
+    //   console.log(this.state.modalOpen);
+    // })
+
+    if (!this.state.modalOpen) {
+      document.addEventListener("click", this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener("click", this.handleOutsideClick, false);
+    }
+
+    this.setState(prevState => ({
       modalOpen: !prevState.modalOpen
-    }),()=>{
-      console.log(this.state.modalOpen);
-    })
+    }));
   };
+
+  handleOutsideClick(e){
+
+    if (!this.node.contains(e.target) && e.target.title==="insidemodal") this.toggleModal();
+  }
 
   getAverage (){
     axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}?type=review`).then(res =>{
@@ -80,9 +97,11 @@ class App extends React.Component {
   render(){
     return(
 
-        <Appcontainer>
+        <Appcontainer ref={node => {
+          this.node = node;
+        }}>
         {this.state.modalOpen ?
-          <Modal onClick={this.toggleModal}>
+          <Modal >
             <Profile modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal} reviews = {this.state.reviews} average ={this.state.average} numbers ={this.state.reviews.length}/>
           </Modal>
           :null
