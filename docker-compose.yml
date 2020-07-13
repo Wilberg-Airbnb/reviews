@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+
+  #backend
+  airbnb-reviews:
+    container_name: backend
+    build: ./
+    command: npm run server
+    working_dir: /usr/src/airbnb_reviews
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/usr/src/airbnb_reviews
+
+  #mysql
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_DATABASE: 'airbnb'
+      MYSQL_USER: 'root'
+      MYSQL_PASSWORD: 'Ruddnjs0102!'
+      MYSQL_ROOT_PASSWORD: 'Ruddnjs0102!'
+    build: ./MYSQL
+    ports:
+      - '3308:3306'
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql:

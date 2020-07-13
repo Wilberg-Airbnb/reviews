@@ -14,6 +14,8 @@ const ProfileModal = styled.div`
   display:flex;
   align-items: center;
   justify-content: center;
+  z-index:999;
+  transition: transform 1s ease-out;
 `;
 
 const Container = styled.div`

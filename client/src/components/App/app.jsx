@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
+import {slideInUp} from 'react-animations';
+import {Slide} from 'react-awesome-reveal';
 
 import Modal from '../Modal/Modal.jsx';
 import Profile from '../Profile/Profile.jsx';
@@ -8,6 +10,8 @@ import AverageReview from '../AverageReview/AverageReview.jsx';
 import ReviewBar from '../ReviewBar/ReviewBar.jsx';
 import Reviews from '../Reviews/Reviews.jsx';
 import $ from 'jquery';
+
+import {CSSTransition} from 'react-transition-group';
 
 const Appcontainer = styled.div`
       margin: 7% 20% 0%
@@ -26,6 +30,32 @@ const Button = styled.button`
   }
 
 `;
+
+
+// const ModalWithTransitionStyles =styled(Modal)`
+// &.modal-transition-enter{
+//   transform: translateY(-100%);
+// }
+// &.modal-transition-enter-active{
+//   transition: transform 900ms ease-in-out ;
+//   transform:translateY(0)
+// }
+
+// &.modal-transition-exit{
+//   transform:translateY(0):
+// }
+// &.modal-transition-exit-active{
+//   transition:transform 900ms ease-in-out ;
+//   transform: translateY(-100%);
+// }
+
+//  &.modal-transition-appear
+
+// `;
+const ModalWithTransitionStyles =styled(Modal)`
+  animation:2s ${keyframes `${slideInUp}`} 1000ms
+`;
+
 
 class App extends React.Component {
   constructor(props){
@@ -62,11 +92,7 @@ class App extends React.Component {
 
   toggleModal(){
     console.log('clicked');
-    // this.setState(prevState =>({
-    //   modalOpen: !prevState.modalOpen
-    // }),()=>{
-    //   console.log(this.state.modalOpen);
-    // })
+
 
     if (!this.state.modalOpen) {
       document.addEventListener("click", this.handleOutsideClick, false);
@@ -101,9 +127,11 @@ class App extends React.Component {
           this.node = node;
         }}>
         {this.state.modalOpen ?
-          <Modal >
-            <Profile modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal} reviews = {this.state.reviews} average ={this.state.average} numbers ={this.state.reviews.length}/>
-          </Modal>
+          <Slide triggerOnce>
+          <ModalWithTransitionStyles open={this.state.modalOpen} onClose={this.state.toggleModal} >
+            <Profile className="modal-box" modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal} reviews = {this.state.reviews} average ={this.state.average} numbers ={this.state.reviews.length}/>
+          </ModalWithTransitionStyles>
+          </Slide>
           :null
         }
         <AverageReview average ={this.state.average} numbers ={this.state.reviews.length}></AverageReview>

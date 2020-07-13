@@ -1,6 +1,6 @@
 const express = require('express');
 const PORT = 3000;
-const {dbConnection} = require('../MYSQL/index.js');
+// const {dbConnection} = require('../MYSQL/index.js');
 const faker = require('faker');
 const morgan = require('morgan');
 const path = require('path');
@@ -14,7 +14,7 @@ app.use(express.static('public/dist'));
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(morgan('dev'))
+app.use(morgan('combined'))
 
 app.use((req,res,next) =>{
   res.header('Access-Control-Allow-Origin', '*');
