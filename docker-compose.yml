@@ -18,7 +18,7 @@ services:
     links:
       - db
     #command: ["wait-for-it.sh","db:3306","--timeout=20","--",""]
-    command: bash -c "wait-for-it.sh db:3306 && npm run seed && npm run server --timeout=20"
+    command: bash -c "wait-for-it.sh db:3306 && npm run docker --timeout=20"
 
 
   #mysql
