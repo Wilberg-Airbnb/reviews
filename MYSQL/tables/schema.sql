@@ -2,6 +2,7 @@ DROP DATABASE IF EXISTS airbnb;
 CREATE DATABASE airbnb;
 use airbnb;
 
+BEGIN TRANSACTION;
 
 CREATE TABLE suggestions(
   id INT(20) PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -34,3 +35,5 @@ CREATE TABLE reviews (
   value INT(20),
   average DECIMAL(10,2)
 );
+
+COMMIT;

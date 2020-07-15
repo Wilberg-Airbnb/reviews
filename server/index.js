@@ -1,6 +1,6 @@
 const express = require('express');
 const PORT = 3000;
-// const {dbConnection} = require('../MYSQL/index.js');
+const {dbConnection} = require('../MYSQL/index.js');
 const faker = require('faker');
 const morgan = require('morgan');
 const path = require('path');
