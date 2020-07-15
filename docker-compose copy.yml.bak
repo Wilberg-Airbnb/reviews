@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+
+  #backend
+  airbnb-reviews:
+    restart: always
+    container_name: backend
+    build: ./
+    command: >
+      bash -c "npm run seed && npm run server"
+    working_dir: /usr/src/airbnb_reviews
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/usr/src/airbnb_reviews
+    links:
+      - mysql
+
+  #mysql
+
+  mysql:
+    image: mysql:8
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DB: airbnb
+    build: ./MYSQL
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql:/var/lib/mysql
+
+volumes:
+  mysql:

@@ -23,3 +23,5 @@ coverage
 
 #
 MYSQL/config.js
+
+.env

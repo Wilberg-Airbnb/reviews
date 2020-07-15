@@ -4,29 +4,40 @@ services:
 
   #backend
   airbnb-reviews:
+    restart: always
     container_name: backend
     build: ./
-    command: npm run server
     working_dir: /usr/src/airbnb_reviews
     ports:
       - "8080:8080"
     volumes:
-      - ./:/usr/src/airbnb_reviews
+      - ./:/usr/src/airbnb_review
+      - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh
+    depends_on:
+      - db
+    links:
+      - db
+    #command: ["wait-for-it.sh","db:3306","--timeout=20","--",""]
+    command: bash -c "wait-for-it.sh db:3306 && npm run seed && npm run server --timeout=20"
+
 
   #mysql
 
-  mysql:
-    image: mysql:latest
+  db:
+    image: mysql:5.6
+    restart: always
     environment:
-      MYSQL_DATABASE: 'airbnb'
-      MYSQL_USER: 'root'
-      MYSQL_PASSWORD: 'Ruddnjs0102!'
-      MYSQL_ROOT_PASSWORD: 'Ruddnjs0102!'
-    build: ./MYSQL
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DB: airbnb
+    #command: --default-authentication-plugin=mysql_native_password
     ports:
-      - '3308:3306'
+      - '3306:3306'
+    expose:
+      - 3306
     volumes:
-      - mysql:/var/lib/mysql
+      - db:/var/lib/mysql
+      - ./MYSQL/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - /etc/mysql/my.cnf:/etc/mysql/my.cnf
 
 volumes:
-  mysql:
+  db:
