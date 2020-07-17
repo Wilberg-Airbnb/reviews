@@ -13,7 +13,7 @@
     "test": "jest --watch *.js",
     "enzymetest": "react-scripts test --env=jsdom",
     "seed": "node server/seed.js",
-    "docker": "concurrently \"npm run seed\" \"npm run server\""
+    "docker": "npm run seed & npm run server"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.2",
@@ -27,6 +27,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "jest-styled-components": "^7.0.2",
     "jquery": "^3.5.1",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
