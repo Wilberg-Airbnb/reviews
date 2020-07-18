@@ -1,4 +1,4 @@
-// const {dbConnection} = require('../MYSQL/index.js');
+
 const request = require('supertest')
 const {app} = require('../server/index.js');
 // const {generateSeed,generateSeed2} = require('../server/seed.js')
