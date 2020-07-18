@@ -13,7 +13,7 @@
     "test": "jest --watch *.js",
     "enzymetest": "react-scripts test --env=jsdom",
     "seed": "node server/seed.js",
-    "docker": "npm run seed & npm run server"
+    "docker": "npm run seed & npm run server & npm run react"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.2",

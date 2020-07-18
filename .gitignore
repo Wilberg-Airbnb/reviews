@@ -25,3 +25,6 @@ coverage
 MYSQL/config.js
 
 .env
+
+#
+airbnbreviews.pem

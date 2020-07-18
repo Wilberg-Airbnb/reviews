@@ -16,7 +16,6 @@ import {CSSTransition} from 'react-transition-group';
 const Appcontainer = styled.div`
       margin: 7% 20% 0%
     `;
-
 const Button = styled.button`
   padding:15px 25px;
   border-radius: 10px;
@@ -76,9 +75,9 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-
-    axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}`).then(res =>{
-
+	console.log(window.location.protocol+'//'+window.location.host+`/api/reviews/${this.state.listingId}`)
+    //axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}`).then(res =>{
+    axios.get(window.location.protocol + '//' +  window.location.host + `/api/reviews/${this.state.listingId}`).then(res =>{
       this.setState({
         reviews: res.data
       },() =>{
@@ -86,6 +85,7 @@ class App extends React.Component {
       })
     })
     .catch(err =>{
+	console.log(err);
       console.log('could not retrieve reviews data')
     })
   };
@@ -111,7 +111,8 @@ class App extends React.Component {
   }
 
   getAverage (){
-    axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}?type=review`).then(res =>{
+    axios.get(window.location.protocol+'//'+window.location.host+`/api/reviews/${this.state.listingId}?type=review`).then(res =>{
+   // axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}?type=review`).then(res =>{
       this.setState({
         average : res.data
       })
@@ -146,4 +147,3 @@ class App extends React.Component {
 }
 
 export default App;
-
