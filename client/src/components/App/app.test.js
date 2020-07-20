@@ -1,12 +1,16 @@
 import React from 'react';
 import {mount,shallow,configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import App from './app.jsx';
 import axios from 'axios';
+
+import App from './app.jsx';
+import Modal from '../Modal/Modal.jsx';
 
 configure({adapter:new Adapter()});
 
 describe('App component',()=>{
+
+
   it('should get listingId as url parameter', async()=>{
 
     global.window = Object.create(window);
@@ -32,5 +36,15 @@ describe('App component',()=>{
     expect(spy).toHaveBeenCalled();
     done()
   })
+
+  it('should open modal when button is clicked',()=>{
+    const wrapper = shallow(<App/>)
+    expect(wrapper.state('modalOpen')).toBe(false);
+
+    wrapper.find('.modalButton').simulate('click');
+    expect(wrapper.state('modalOpen')).toBe(true);
+
+  })
+
 
 })

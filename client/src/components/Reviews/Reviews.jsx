@@ -19,7 +19,7 @@ const Reviews= ({reviews}) =>{
 return (
   <FilterReviewsContainer>
     {selectReviews.map((review,idx)=>{
-      return <Review review = {review} key={idx}/>
+      return <Review className="review" review = {review} key={idx}/>
     })}
   </FilterReviewsContainer>
 )}

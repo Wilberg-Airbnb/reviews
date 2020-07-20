@@ -65,15 +65,15 @@ const Profile = ({modalOpen, toggleModal,reviews,average,numbers}) =>{
   return (
     <ProfileModal title ='insidemodal'>
       <Container >
-        <Close onClick={()=>{toggleModal()}}>X</Close>
+        <Close className ="close" id ="close" onClick={()=>{toggleModal()}}>X</Close>
         <ReviewContainer>
           <ReviewScore>
             <AverageReview average= {average} numbers={numbers} big={true}/>
             <ReviewBar reviews ={reviews} reviewmodal ={true}></ReviewBar>
           </ReviewScore>
-          <ReviewDisplay>
+          <ReviewDisplay className="reviewdisplay">
             {reviews.map((review,idx)=>{
-              return <Review review = {review} key={idx}/>
+              return <Review className="review" review = {review} key={idx}/>
             })}
           </ReviewDisplay>
         </ReviewContainer>

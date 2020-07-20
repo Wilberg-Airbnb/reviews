@@ -15,23 +15,23 @@ const ReviewBar = (props) => {
 
   if (reviews.length > 1) {
     return (
-      <ReviewsContainer reviewmodal={props.reviewmodal}>
-        <ProgressBar name={'Cleanliness'} score={reviews.reduce((a,b) => {
+      <ReviewsContainer className="ReviewsContainer"reviewmodal={props.reviewmodal}>
+        <ProgressBar className="progressbar" name={'Cleanliness'} score={reviews.reduce((a,b) => {
       return a+b.cleanliness
     },0)/reviews.length}></ProgressBar>
-        <ProgressBar name={'Accuracy'} score={reviews.reduce((a,b) => {
+        <ProgressBar className="progressbar" name={'Accuracy'} score={reviews.reduce((a,b) => {
       return a+b.accuracy
     },0)/reviews.length}></ProgressBar>
-        <ProgressBar name={'Communication'} score={reviews.reduce((a,b) => {
+        <ProgressBar className="progressbar" name={'Communication'} score={reviews.reduce((a,b) => {
       return a+b.communication
     },0)/reviews.length}></ProgressBar>
-        <ProgressBar name={'Location'} score={reviews.reduce((a,b) => {
+        <ProgressBar className="progressbar" name={'Location'} score={reviews.reduce((a,b) => {
       return a+b.location
     },0)/reviews.length}></ProgressBar>
-        <ProgressBar name={'Check-in'} score={reviews.reduce((a,b) => {
+        <ProgressBar className="progressbar" name={'Check-in'} score={reviews.reduce((a,b) => {
       return a+b.checkIn
     },0)/reviews.length}></ProgressBar>
-        <ProgressBar name={'Value'} score={reviews.reduce((a,b) => {
+        <ProgressBar className="progressbar" name={'Value'} score={reviews.reduce((a,b) => {
       return a+b.value
     },0)/reviews.length}></ProgressBar>
       </ReviewsContainer>

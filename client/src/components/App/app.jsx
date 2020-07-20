@@ -138,7 +138,7 @@ class App extends React.Component {
         <AverageReview average ={this.state.average} numbers ={this.state.reviews.length}></AverageReview>
         <ReviewBar reviews ={this.state.reviews} reviewmodal ={false}></ReviewBar>
         <Reviews reviews ={this.state.reviews}></Reviews>
-        <Button onClick={this.toggleModal}>{`Show all ${this.state.reviews.length} reviews`}</Button>
+        <Button className="modalButton" onClick={this.toggleModal}>{`Show all ${this.state.reviews.length} reviews`}</Button>
 
         </Appcontainer>
 

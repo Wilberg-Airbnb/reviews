@@ -25,8 +25,8 @@ const ReviewScore = styled.div`
 const AverageReview = ({average, numbers,big}) =>{
   return (
     <ReviewContainer>
-      <Star big ={big}></Star>
-      <ReviewScore big = {big}>{`${average} (${numbers} reviews)`}</ReviewScore>
+      <Star className ="star" big ={big}></Star>
+      <ReviewScore className="ReviewScore" big = {big}>{`${average} (${numbers} reviews)`}</ReviewScore>
     </ReviewContainer>
   )}
 
