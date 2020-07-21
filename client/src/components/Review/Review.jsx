@@ -82,8 +82,8 @@ class Review extends React.Component {
           </Nameinfo>
         </Profile>
         {this.state.hidden?
-        <Comments>{this.state.comments}</Comments>
-        : <Comments>{`${this.state.comments.slice(0,100)}...`}<Span onClick ={this.readmore}>read more</Span></Comments>
+        <Comments className="comments">{this.state.comments}</Comments>
+        : <Comments className="comments">{`${this.state.comments.slice(0,100)}...`}<Span className="readmeClick"onClick ={this.readmore}>read more</Span></Comments>
         }
       </ReviewContainer>
     )
