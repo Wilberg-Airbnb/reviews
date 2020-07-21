@@ -1,6 +1,8 @@
 import React from 'react';
 import {mount,shallow,configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+
+
 import axios from 'axios';
 
 import App from './app.jsx';
@@ -43,7 +45,6 @@ describe('App component',()=>{
 
     wrapper.find('.modalButton').simulate('click');
     expect(wrapper.state('modalOpen')).toBe(true);
-
   })
 
 
