@@ -99,24 +99,24 @@ app.get('/api/reviews',(req,res) =>{
     for(let i =0; i<array.length;i++){
       let listingId = Number(array[i]);
       averageReviews.push(new Promise((resolve,reject) =>{
-        dbConnection.query(`SELECT average FROM reviews WHERE listingId = ${listingId}`, (err,listObj)=>{
+        dbConnection.query(`SELECT * FROM reviews WHERE listingId = ${listingId}`, (err,listObj)=>{
           if(err){
             console.log(err)
           }
 
-          let avgValue = listObj.reduce((a, b) => a + b.average,0) / listObj.length;
+          let listLength = listObj.length;
 
-          console.log(avgValue);
-          resolve(avgValue)
+          console.log(listLength);
+          resolve(listLength)
         })
       }))
     }
 
     return Promise.all(averageReviews).then(avgArr =>{
-      let avgValue = avgArr.reduce((a, b) => a + b) / avgArr.length;
+      let totalNumber = avgArr.reduce((a, b) => a + b);
 
 
-      res.json(parseFloat((avgValue).toFixed(2)));
+      res.json(parseFloat((totalNumber).toFixed(2)));
     }).catch(err =>{
       console.log(err);
     })
