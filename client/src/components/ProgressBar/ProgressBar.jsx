@@ -40,6 +40,7 @@ const Separator= styled.div`
 
 
 const ProgressBar = ({name,score}) =>{
+  console.log(score.toFixed(1))
   return (
     <ReviewScore>
       <Name>{name}</Name>
@@ -47,7 +48,7 @@ const ProgressBar = ({name,score}) =>{
         <Progress>
           <Bar style={{width:`${parseFloat((score/5)*100).toFixed(1)}%`}}></Bar>
         </Progress>
-        <Score>{`${parseFloat((score).toFixed(1))}`}</Score>
+        <Score>{`${(score).toFixed(1)}`}</Score>
       </Separator>
     </ReviewScore>
   )}
