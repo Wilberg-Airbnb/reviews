@@ -13,7 +13,8 @@
     "test": "jest --watch *.js",
     "enzymetest": "react-scripts test --env=jsdom",
     "seed": "node server/seed.js",
-    "docker": "npm run seed & npm run server & npm run react"
+    "docker": "npm run seed & npm run server & npm run react",
+    "precommit": "pretty-quick --staged"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.2",
@@ -27,6 +28,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "faker": "^4.1.0",
+    "husky": "^4.2.5",
     "jest-styled-components": "^7.0.2",
     "jquery": "^3.5.1",
     "mongoose": "^5.9.19",
@@ -34,6 +36,7 @@
     "mysql": "^2.18.1",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
+    "pretty-quick": "^2.0.1",
     "react": "^16.13.1",
     "react-animations": "^1.0.0",
     "react-awesome-reveal": "^2.4.2",
@@ -55,6 +58,7 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.1.0",
     "jest-transform-stub": "^2.0.0",
+    "prettier": "2.0.5",
     "react-test-renderer": "^16.13.1",
     "style-loader": "^1.2.1",
     "styled-components-test-utils": "^1.0.2",
