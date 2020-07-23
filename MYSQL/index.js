@@ -1,10 +1,11 @@
 var mysql = require('mysql');
-const {password} = require('./config.js')
+// const {password} = require('./config.js')
+require('dotenv').config()
 
 var dbConnection = mysql.createConnection({
   // host: 'db',
   user:'root',
-  password:password,
+  password:process.env.MYSQL_PASSWORD,
   database:'airbnb',
   port: '3306'
 });
