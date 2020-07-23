@@ -10,9 +10,10 @@ const ReviewScore = styled.div`
 
 const Progress = styled.div`
   margin-bottom:0.3rem;
-  height:5px;
+  height:3px;
   overflow:visible;
-  width:140px;
+  width:120px;
+  background-color: #C8C8C8;
 
 `;
 
@@ -21,7 +22,7 @@ const Bar = styled.div`
   height:100%;
   background:black;
   text-align:center;
-
+  float:left;
 `;
 
 const Name = styled.div`
@@ -31,16 +32,17 @@ const Name = styled.div`
 
 const Score=styled.div`
   font-size:12px;
+  margin-left:5px;
 `;
 
 const Separator= styled.div`
   display:flex;
   align-items: center;
+  justify-content:end;
 `;
 
 
 const ProgressBar = ({name,score}) =>{
-  console.log(score.toFixed(1))
   return (
     <ReviewScore>
       <Name>{name}</Name>

@@ -75,8 +75,6 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-	console.log(window.location.protocol+'//'+window.location.host+`/api/reviews/${this.state.listingId}`)
-    //axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}`).then(res =>{
     axios.get(window.location.protocol + '//' +  window.location.host + `/api/reviews/${this.state.listingId}`).then(res =>{
       this.setState({
         reviews: res.data
@@ -92,8 +90,6 @@ class App extends React.Component {
 
   toggleModal(){
     console.log('clicked');
-
-
     if (!this.state.modalOpen) {
       document.addEventListener("click", this.handleOutsideClick, false);
     } else {
@@ -112,7 +108,6 @@ class App extends React.Component {
 
   getAverage (){
     axios.get(window.location.protocol+'//'+window.location.host+`/api/reviews/${this.state.listingId}?type=review`).then(res =>{
-   // axios.get(`http://localhost:8080/api/reviews/${this.state.listingId}?type=review`).then(res =>{
       this.setState({
         average : res.data
       })
@@ -128,11 +123,9 @@ class App extends React.Component {
           this.node = node;
         }}>
         {this.state.modalOpen ?
-          <Slide triggerOnce>
-          <ModalWithTransitionStyles open={this.state.modalOpen} onClose={this.state.toggleModal} >
+          <Modal open={this.state.modalOpen} onClose={this.state.toggleModal} >
             <Profile className="modal-box" modalOpen = {this.state.modalOpen} toggleModal={this.toggleModal} reviews = {this.state.reviews} average ={this.state.average} numbers ={this.state.reviews.length}/>
-          </ModalWithTransitionStyles>
-          </Slide>
+          </Modal>
           :null
         }
         <AverageReview average ={this.state.average} numbers ={this.state.reviews.length}></AverageReview>
