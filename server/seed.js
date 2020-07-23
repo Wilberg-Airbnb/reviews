@@ -34,12 +34,12 @@ function generateSeed(){
         avatarURL:faker.internet.avatar(),
         comments: faker.lorem.sentences(),
         createdAt:faker.date.between('2015-01-01','2020-07-10'),
-        cleanliness: faker.random.number({min:1,max:5}),
-        accuracy:faker.random.number({min:1,max:5}),
-        communication:faker.random.number({min:1,max:5}),
-        location:faker.random.number({min:1,max:5}),
-        checkIn:faker.random.number({min:1,max:5}),
-        value:faker.random.number({min:1,max:5})
+        cleanliness: weightedRandomDistrib(1,6,5,7),
+        accuracy:weightedRandomDistrib(1,6,5,7),
+        communication:weightedRandomDistrib(1,6,5,7),
+        location:weightedRandomDistrib(1,6,5,7),
+        checkIn:weightedRandomDistrib(1,6,5,7),
+        value:weightedRandomDistrib(1,6,5,7)
       }
       seedArr.push(obj);
     }
@@ -130,42 +130,42 @@ fs.writeFile(__dirname+'/dummyData.txt', JSON.stringify(seed), err =>{
   }
 })
 
-seed2= generateSeed2()
+//seed2= generateSeed2()
 
-fs.writeFile(__dirname+'/dummyData2.txt', JSON.stringify(seed2), err =>{
-  if(err){
-    console.log('error writing dummy data',err)
-  }else{
-    console.log('succesfully wrote dummy data file');
+// fs.writeFile(__dirname+'/dummyData2.txt', JSON.stringify(seed2), err =>{
+//   if(err){
+//     console.log('error writing dummy data',err)
+//   }else{
+//     console.log('succesfully wrote dummy data file');
 
-    let seed2Promises = [];
+//     let seed2Promises = [];
 
-    for(let i = 0; i<seed2.length; i++){
-      let place = seed2[i];
+//     for(let i = 0; i<seed2.length; i++){
+//       let place = seed2[i];
 
-      let {listingId,roomtype,numberOfBeds,placeName,price,pictureURL} = place;
+//       let {listingId,roomtype,numberOfBeds,placeName,price,pictureURL} = place;
 
-      let queryArgs =[listingId,roomtype,numberOfBeds,placeName,price,pictureURL]
+//       let queryArgs =[listingId,roomtype,numberOfBeds,placeName,price,pictureURL]
 
-      seed2Promises.push(new Promise((resolve,reject) =>{
-        dbConnection.query('INSERT INTO suggestions (listingId,roomtype,numbOfBedrooms,placeName,price,pictureURL) VALUES (?,?,?,?,?,?)',queryArgs,(err,results) =>{
-          resolve(results);
-        })
-      }))
-    }
+//       seed2Promises.push(new Promise((resolve,reject) =>{
+//         dbConnection.query('INSERT INTO suggestions (listingId,roomtype,numbOfBedrooms,placeName,price,pictureURL) VALUES (?,?,?,?,?,?)',queryArgs,(err,results) =>{
+//           resolve(results);
+//         })
+//       }))
+//     }
 
-    return Promise.all(seed2Promises).then(done =>{
-      console.log('done with suggestions seed')
-    }).catch(err =>{
-      console.log("seed2",err);
-    })
+//     return Promise.all(seed2Promises).then(done =>{
+//       console.log('done with suggestions seed')
+//     }).catch(err =>{
+//       console.log("seed2",err);
+//     })
 
 
-  }
-})
+//   }
+// })
 
 
 module.exports.generateSeed= generateSeed;
-module.exports.generateSeed2=generateSeed2;
+//module.exports.generateSeed2=generateSeed2;
 module.exports.seed = seed;
-module.exports.seed2 = seed2;
+//module.exports.seed2 = seed2;

@@ -78,7 +78,7 @@ class Review extends React.Component {
           <Image src={this.state.avatarURL}></Image>
           <Nameinfo>
             <h1 style={textStyles}>{this.state.firstname}</h1>
-            <h1>{`${months[this.state.date.getMonth()]} ${this.state.date.getFullYear()}`}</h1>
+            <h1 style ={{color: `#909090`}}>{`${months[this.state.date.getMonth()]} ${this.state.date.getFullYear()}`}</h1>
           </Nameinfo>
         </Profile>
         {this.state.hidden?
