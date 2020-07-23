@@ -60,7 +60,7 @@ class App extends React.Component {
   constructor(props){
     super(props);
     // console.log(window.location.pathname.slice(1,-1))
-    this.requestedId = JSON.parse(window.location.pathname.split('/')[window.location.pathname.split('/').length-1]);
+    this.requestedId = window.location.pathname.split('/')[window.location.pathname.split('/').length-1];
 
     this.state ={
       modalOpen:false,

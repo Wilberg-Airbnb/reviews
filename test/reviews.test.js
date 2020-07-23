@@ -37,7 +37,7 @@ describe('server endpoints Test',()=>{
     expect(JSON.parse(response.text)).toEqual(expect.any(Number))
   })
 
-  test("it should give an array length of 12 with each index consisting of suggested listingId information", async() =>{
+  xtest("it should give an array length of 12 with each index consisting of suggested listingId information", async() =>{
     const response = await request(app).get("/api/suggestions/15");
 
     expect(JSON.parse(response.text).length).toEqual(12);

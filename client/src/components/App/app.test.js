@@ -16,16 +16,16 @@ describe('App component',()=>{
   it('should get listingId as url parameter', async()=>{
 
     global.window = Object.create(window);
-    const url = 'http://localhost:8080/15/';
+    const url = 'http://localhost:8080/15';
     Object.defineProperty(window,'location',{
       value:{
         href:url,
-        pathname: '/15/'
+        pathname: '/15'
       }
     })
 
     var wrapper = shallow(<App/>);
-    expect(wrapper.state().listingId).toEqual(15);
+    expect(JSON.parse(wrapper.state().listingId)).toEqual(15);
   })
 
   it('should call componentDidMount when it first renders', async(done) =>{
