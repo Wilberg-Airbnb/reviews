@@ -10,7 +10,7 @@
   "scripts": {
     "react": "webpack -d",
     "server": "nodemon server/server.js",
-    "test": "jest --watch *.js",
+    "test": "jest --detectOpenHandles",
     "enzymetest": "react-scripts test --env=jsdom",
     "seed": "node server/seed.js",
     "docker": "npm run seed & npm run server & npm run react",
