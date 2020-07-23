@@ -2,7 +2,7 @@
 const request = require('supertest')
 const {app} = require('../server/index.js');
 // const {generateSeed,generateSeed2} = require('../server/seed.js');
-const {dbConnection} = require('../MYSQL/index.js');
+// const {dbConnection} = require('../MYSQL/index.js');
 
 
 
@@ -10,7 +10,7 @@ const {dbConnection} = require('../MYSQL/index.js');
 xdescribe('dummy data generation seed Test',() =>{
 
 
-  afterAll(()=>{ dbConnection.connection.end();});
+  // afterAll(()=>{ dbConnection.connection.end();});
 
 
   test('generate reviews information for 100 listingId',async() =>{
