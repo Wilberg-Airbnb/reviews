@@ -27,6 +27,7 @@ const ProfileModal = styled.div`
   align-items: center;
   justify-content: center;
   z-index:999;
+  overflow:hidden;
 `;
 
 const Container = styled.div`
@@ -36,11 +37,21 @@ const Container = styled.div`
   border-radius:15px 15px 0px 15px;
   padding:2rem 0rem 1rem 2rem;
   animation: ${open} 0.3s linear;
+  overflow:hidden;
 `;
 
 //animation: ${open} 0.3s linear;
 const ReviewContainer = styled.div`
   display:flex;
+  position:relative;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  overflow-y:scroll;
+  scrollbar-color:#f1f1f1;
+  scrollbar-width:thick;
+  height:100%;
 
 `;
 
@@ -62,12 +73,8 @@ const ReviewScore=styled.div`
 
 const ReviewDisplay=styled.div`
   width:65%;
-  max-height:935px;
-  position:relative;
-  bottom:0;
-  overflow-y:scroll;
-  scrollbar-color:#f1f1f1;
-  scrollbar-width:thick;
+  height:100%;
+
 `;
 
 
