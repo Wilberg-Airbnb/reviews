@@ -22,6 +22,8 @@ app.use((req,res,next) =>{
   next();
 })
 
+app.use('/:listingId/', express.static('public/dist'));
+
 app.get('/api/reviews/:listingId',(req,res) =>{
 
   console.log('received request')
@@ -54,40 +56,37 @@ app.get('/api/reviews/:listingId',(req,res) =>{
 
 
 
-app.get('/api/suggestions/:listingId',(req,res) =>{
-  const listingId = req.params.listingId;
-  let listArr=[Number(listingId)];
+// app.get('/api/suggestions/:listingId',(req,res) =>{
+//   const listingId = req.params.listingId;
+//   let listArr=[Number(listingId)];
 
-  let lists = new Array(100).fill(null).map((ele,idx) =>{return idx})
+//   let lists = new Array(100).fill(null).map((ele,idx) =>{return idx})
 
-  lists.splice(listingId,1);
+//   lists.splice(listingId,1);
 
-  for(var j =0; j<11;j++){
-    var random = lists[Math.floor(Math.random() * lists.length)];
-    listArr.push(random);
-    var index = lists.indexOf(random)
-    lists.splice(index,1);
-  }
+//   for(var j =0; j<11;j++){
+//     var random = lists[Math.floor(Math.random() * lists.length)];
+//     listArr.push(random);
+//     var index = lists.indexOf(random)
+//     lists.splice(index,1);
+//   }
 
-  var result = []
-  listArr.forEach(listId =>{
-    result.push(new Promise((resolve,reject)=>{
-      dbConnection.query(`SELECT * FROM suggestions WHERE listingId=${listId}`,(err,listObj)=>{
-        // console.log(listObj)
-        resolve(listObj[0])
-      })
-    }))
-  })
+//   var result = []
+//   listArr.forEach(listId =>{
+//     result.push(new Promise((resolve,reject)=>{
+//       dbConnection.query(`SELECT * FROM suggestions WHERE listingId=${listId}`,(err,listObj)=>{
+//         // console.log(listObj)
+//         resolve(listObj[0])
+//       })
+//     }))
+//   })
 
-  return Promise.all(result).then(suggestList =>{
-    res.json(suggestList)
-  }).catch(err =>{
-    console.log(err);
-  })
-
-
-
-})
+//   return Promise.all(result).then(suggestList =>{
+//     res.json(suggestList)
+//   }).catch(err =>{
+//     console.log(err);
+//   })
+// })
 
 
 app.get('/api/reviews',(req,res) =>{
@@ -123,16 +122,15 @@ app.get('/api/reviews',(req,res) =>{
   }
 })
 
-app.get('/:listingId',(req,res) =>{
-  if(req.params.listingId> 99){
-    res.sendStatus(404);
-  }
+// app.use('/:listingId',(req,res,next) =>{
+//   if(req.params.listingId> 99){
+//     res.sendStatus(404);
+//   }
 
-  var currentPage = path.join(__dirname, '../public/dist/index.html');
+//   var currentPage = path.join(__dirname, '../public/dist/index.html');
 
-  res.sendFile(currentPage)
-})
+//   // res.sendFile(currentPage)
+//   next();
+// })
 
 module.exports.app = app;
-
-
