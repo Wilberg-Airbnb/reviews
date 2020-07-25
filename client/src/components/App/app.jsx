@@ -75,7 +75,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    axios.get(window.location.protocol + '//' +  window.location.host + `/api/reviews/${this.state.listingId}`).then(res =>{
+    axios.get(`http://52.14.214.44:8080/api/reviews/${this.state.listingId}`).then(res =>{
       this.setState({
         reviews: res.data
       },() =>{
@@ -107,7 +107,7 @@ class App extends React.Component {
   }
 
   getAverage (){
-    axios.get(window.location.protocol+'//'+window.location.host+`/api/reviews/${this.state.listingId}?type=review`).then(res =>{
+    axios.get(`http://52.14.214.44:8080/api/reviews/${this.state.listingId}?type=review`).then(res =>{
       this.setState({
         average : res.data
       })

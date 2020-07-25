@@ -55,7 +55,7 @@ const ReviewContainer = styled.div`
 
 `;
 
-const Close = styled.div`
+const CloseBox = styled.div`
   margin-bottom:1em;
   display:inline-block;
   &:hover{
@@ -84,7 +84,7 @@ const Profile = ({modalOpen, toggleModal,reviews,average,numbers}) =>{
   return (
     <ProfileModal title ='insidemodal'>
       <Container>
-        <Close className ="close" id ="close" onClick={()=>{toggleModal()}}>X</Close>
+        <CloseBox className ="closebox" id ="closebox" onClick={()=>{toggleModal()}}>X</CloseBox>
         <ReviewContainer>
           <ReviewScore>
             <AverageReview average= {average} numbers={numbers} big={true}/>
