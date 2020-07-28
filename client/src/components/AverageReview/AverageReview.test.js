@@ -10,15 +10,24 @@ import {ThemeProvider} from 'styled-components'
 
 configure({adapter:new Adapter()});
 
-// const Star = styled.div`
-//   background: #FF385C;
-//   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-//   display: inline-block;
-//   height: ${({big})=> big? '30px' : '15px'};
-//   width: ${({big})=> big? '30px' : '15px'};
-//   margin-right:4px;
-// }
-// `;
+expect.extend({
+  toBeWithinRange(received, floor, ceiling) {
+    const pass = received >= floor && received <= ceiling;
+    if (pass) {
+      return {
+        message: () =>
+          `expected ${received} not to be within range ${floor} - ${ceiling}`,
+        pass: true,
+      };
+    } else {
+      return {
+        message: () =>
+          `expected ${received} to be within range ${floor} - ${ceiling}`,
+        pass: false,
+      };
+    }
+  },
+});
 
 
 describe('AverageReview component',()=>{
@@ -31,6 +40,7 @@ describe('AverageReview component',()=>{
   it('should show the average review score that is rounded to two decimal points',()=>{
     let reviewScore = wrapper.find('.ReviewScore');
     expect(reviewScore.text().split(' ')[0]).toEqual('3.02')
+    expect(Number(reviewScore.text().split(' ')[0])).toBeWithinRange(1,5);
   })
 
   it('should receive total number of reviews as props named as numbers',()=>{
