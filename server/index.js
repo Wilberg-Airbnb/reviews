@@ -5,10 +5,15 @@ const faker = require('faker');
 const morgan = require('morgan');
 const path = require('path');
 const cors = require('cors');
+const compression = require('compression');
+
+
 
 
 
 const app = express();
+
+app.use(compression());
 app.use(cors());
 app.use(express.static('public/dist'));
 
@@ -87,15 +92,5 @@ app.get('/api/reviews',(req,res) =>{
   }
 })
 
-// app.use('/:listingId',(req,res,next) =>{
-//   if(req.params.listingId> 99){
-//     res.sendStatus(404);
-//   }
-
-//   var currentPage = path.join(__dirname, '../public/dist/index.html');
-
-//   // res.sendFile(currentPage)
-//   next();
-// })
 
 module.exports.app = app;

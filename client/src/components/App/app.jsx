@@ -31,26 +31,6 @@ const Button = styled.button`
 `;
 
 
-// const ModalWithTransitionStyles =styled(Modal)`
-// &.modal-transition-enter{
-//   transform: translateY(-100%);
-// }
-// &.modal-transition-enter-active{
-//   transition: transform 900ms ease-in-out ;
-//   transform:translateY(0)
-// }
-
-// &.modal-transition-exit{
-//   transform:translateY(0):
-// }
-// &.modal-transition-exit-active{
-//   transition:transform 900ms ease-in-out ;
-//   transform: translateY(-100%);
-// }
-
-//  &.modal-transition-appear
-
-// `;
 const ModalWithTransitionStyles =styled(Modal)`
   animation:2s ${keyframes `${slideInUp}`} 1000ms
 `;
@@ -72,6 +52,10 @@ class App extends React.Component {
     this.toggleModal = this.toggleModal.bind(this);
     this.getAverage = this.getAverage.bind(this);
     this.handleOutsideClick=this.handleOutsideClick.bind(this);
+  }
+
+  shouldComponentUpdate(nextProps,nextState){
+    return true;
   }
 
   componentDidMount(){
