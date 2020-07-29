@@ -13,20 +13,20 @@ const Profile = styled.div`
 
 const Image = styled.img`
   vertical-align:middle;
-  width:60px;
-  height:60px;
+  width:6.0vmin;
+  height:6.0vmin;
   border-radius:50%;
   margin-right: 5px;
 `;
 
 const Comments = styled.div`
-  font-size:14px;
+  font-size:1.4vmin;
 
 `;
 
 const Nameinfo = styled.div`
   & > h1{
-    font-size:12px;
+    font-size:1.2vmin;
     font-weight:normal;
   }
 `;
@@ -34,7 +34,7 @@ const Nameinfo = styled.div`
 const Span = styled.span`
   font-weight:bold;
   text-decoration: underline;
-  font-size:16px;
+  font-size:1.6vmin;
 
   &:hover{
     cursor:pointer;
@@ -43,10 +43,10 @@ const Span = styled.span`
 
 const textStyles ={
   fontWeight:'bold',
-  fontSize:'14px'
+  fontSize:'1.4vmin'
 }
 
-class Review extends React.Component {
+class ReviewSection extends React.Component {
   constructor(props){
     super(props);
 
@@ -90,7 +90,7 @@ class Review extends React.Component {
   }
 }
 
-export default Review;
+export default ReviewSection;
 
 
 // const Review = ({ review }) => {

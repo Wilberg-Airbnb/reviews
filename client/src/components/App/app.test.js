@@ -46,7 +46,7 @@ describe('App component',()=>{
     const wrapper = shallow(<App/>)
     expect(wrapper.state('modalOpen')).toBe(false);
 
-    wrapper.find('.modalButton').simulate('click');
+    wrapper.find('.ReviewmodalButton').simulate('click');
     expect(wrapper.state('modalOpen')).toBe(true);
   });
 
@@ -86,7 +86,7 @@ describe('App component',()=>{
     }
 
     await page.goto('http://localhost:8080/12');
-    await page.waitForSelector('.modalButton');
+    await page.waitForSelector('.ReviewmodalButton');
     await page.click("#review > div > button");
     await autoScroll(page);
     await page.click('#closebox');

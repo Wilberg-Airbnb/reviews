@@ -14,9 +14,9 @@ import $ from 'jquery';
 import {CSSTransition} from 'react-transition-group';
 
 const Appcontainer = styled.div`
-      margin: 7% 20% 0%
+      width:100%;
     `;
-const Button = styled.button`
+const ReviewModalButton = styled.button`
   padding:15px 25px;
   border-radius: 10px;
   border-style:solid;
@@ -27,6 +27,8 @@ const Button = styled.button`
     filter:brightness(85%);
     cursor:pointer;
   }
+
+  font-size:1.6vmin
 
 `;
 
@@ -115,7 +117,7 @@ class App extends React.Component {
         <AverageReview average ={this.state.average} numbers ={this.state.reviews.length}></AverageReview>
         <ReviewBar reviews ={this.state.reviews} reviewmodal ={false}></ReviewBar>
         <Reviews reviews ={this.state.reviews}></Reviews>
-        <Button className="modalButton" onClick={this.toggleModal}>{`Show all ${this.state.reviews.length} reviews`}</Button>
+        <ReviewModalButton className="ReviewmodalButton" onClick={this.toggleModal}>{`Show all ${this.state.reviews.length} reviews`}</ReviewModalButton>
 
         </Appcontainer>
 

@@ -9,6 +9,7 @@ const ReviewsContainer = styled.div`
       margin-bottom:15px;
       grid-column-gap:${({reviewmodal})=> reviewmodal? '0%' : '8%'};
       align-items: end;
+      width:100%;
 `;
 const ReviewBar = (props) => {
   const reviews = props.reviews;

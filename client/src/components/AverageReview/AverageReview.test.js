@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount,shallow,configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import AverageReview, {Star} from './AverageReview.jsx';
+import AverageReview, {AirbnbStar} from './AverageReview.jsx';
 import 'jest-styled-components';
 import renderer from 'react-test-renderer';
 import {ThemeProvider} from 'styled-components'

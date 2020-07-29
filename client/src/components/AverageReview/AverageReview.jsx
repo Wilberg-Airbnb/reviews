@@ -8,7 +8,7 @@ const ReviewContainer=styled.div`
   margin-bottom:2rem;
 `;
 
-const Star = styled.div`
+const AirbnbStar = styled.div`
   background: #FF385C;
   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
   display: inline-block;
@@ -18,15 +18,15 @@ const Star = styled.div`
 }
 `;
 
-const ReviewScore = styled.div`
-  font-size: ${({big})=> big? '32px' : '20px'};
+const ReviewScore_andy = styled.div`
+  font-size: ${({big})=> big? '3.2vmin' : '2.0vmin'};
   font-weight: ${({big})=> big? 'bold' : 'normal'}
 `;
 const AverageReview = ({average, numbers,big}) =>{
   return (
     <ReviewContainer>
-      <Star className ="star" big ={big}></Star>
-      <ReviewScore className="ReviewScore" big = {big}>{`${average} (${numbers} reviews)`}</ReviewScore>
+      <AirbnbStar className ="AirbnbStar" big ={big}></AirbnbStar>
+      <ReviewScore_andy className="ReviewScore_andy" big = {big}>{`${average} (${numbers} reviews)`}</ReviewScore_andy>
     </ReviewContainer>
   )}
 

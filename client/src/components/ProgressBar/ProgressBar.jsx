@@ -6,13 +6,14 @@ const ReviewScore = styled.div`
   justify-content:space-between;
   margin-bottom:1.5rem;
   align-items: center;
+  width:100%;
 `;
 
 const Progress = styled.div`
   margin-bottom:0.3rem;
-  height:3px;
+  height:0.44vmin;
   overflow:visible;
-  width:120px;
+  width:12.0vmin;
   background-color: #C8C8C8;
 
 `;
@@ -26,12 +27,12 @@ const Bar = styled.div`
 `;
 
 const Name = styled.div`
-  font-size:16px;
-  text-align:center;;
+  font-size:1.6vmin;
+  width:35%;
 `;
 
 const Score=styled.div`
-  font-size:12px;
+  font-size:1.2vmin;
   margin-left:5px;
 `;
 

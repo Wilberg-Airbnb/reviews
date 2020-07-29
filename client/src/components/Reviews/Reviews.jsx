@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Review from '../Review/Review.jsx';
+import ReviewSection from '../Review/Review.jsx';
 
 
 const FilterReviewsContainer = styled.div`
@@ -19,7 +19,7 @@ const Reviews= ({reviews}) =>{
 return (
   <FilterReviewsContainer>
     {selectReviews.map((review,idx)=>{
-      return <Review className="review" review = {review} key={idx}/>
+      return <ReviewSection className="reviewsection" review = {review} key={idx}/>
     })}
   </FilterReviewsContainer>
 )}
