@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 
 const ReviewContainer=styled.div`
-#review $ {
+#review & {
   display:flex;
   align-items:center;
   margin-bottom:2rem;
@@ -14,6 +14,8 @@ const ReviewContainer=styled.div`
   align-items:center;
   margin-bottom:2rem;
 }
+
+
 
 `;
 
