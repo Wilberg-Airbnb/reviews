@@ -14,9 +14,11 @@ import $ from 'jquery';
 import {CSSTransition} from 'react-transition-group';
 
 const Appcontainer = styled.div`
-      width:100%;
-    `;
+      #review & {
+        width:100%;
+      }`;
 const ReviewModalButton = styled.button`
+#review & {
   padding:15px 25px;
   border-radius: 10px;
   border-style:solid;
@@ -30,12 +32,13 @@ const ReviewModalButton = styled.button`
 
   font-size:1.6vmin
 
-`;
+}`;
 
 
 const ModalWithTransitionStyles =styled(Modal)`
+#review & {
   animation:2s ${keyframes `${slideInUp}`} 1000ms
-`;
+}`;
 
 
 class App extends React.Component {

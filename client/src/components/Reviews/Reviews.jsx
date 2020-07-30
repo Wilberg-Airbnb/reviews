@@ -4,11 +4,21 @@ import ReviewSection from '../Review/Review.jsx';
 
 
 const FilterReviewsContainer = styled.div`
+#review & {
   display:grid;
   grid-template-columns:auto auto;
   margin-bottom:10px;
   justify-content: space-between;
   grid-column-gap:8%;
+}
+
+#reviewmodal-root & {
+  display:grid;
+  grid-template-columns:auto auto;
+  margin-bottom:10px;
+  justify-content: space-between;
+  grid-column-gap:8%;
+}
 `;
 
 const Reviews= ({reviews}) =>{
