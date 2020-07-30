@@ -11,7 +11,7 @@ describe('Reviews component',() =>{
   it('should render only up to 6 reviews on the page',() =>{
     const wrapper = shallow(<Reviews reviews = {reviews}/>)
 
-    const reviewContainer = wrapper.find('.review');
+    const reviewContainer = wrapper.find('.reviewsection');
     expect(reviewContainer.length).toBeLessThan(7);
 
 

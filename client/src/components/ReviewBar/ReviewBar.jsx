@@ -4,11 +4,23 @@ import styled from 'styled-components';
 import ProgressBar from '../ProgressBar/ProgressBar.jsx';
 
 const ReviewsContainer = styled.div`
+#review & {
       display:grid;
       grid-template-columns:${({reviewmodal})=> reviewmodal? 'auto' : 'auto auto'};
       margin-bottom:15px;
       grid-column-gap:${({reviewmodal})=> reviewmodal? '0%' : '8%'};
       align-items: end;
+      width:100%;
+}
+
+#reviewmodal-root & {
+  display:grid;
+  grid-template-columns:${({reviewmodal})=> reviewmodal? 'auto' : 'auto auto'};
+  margin-bottom:15px;
+  grid-column-gap:${({reviewmodal})=> reviewmodal? '0%' : '8%'};
+  align-items: end;
+  width:100%;
+}
 `;
 const ReviewBar = (props) => {
   const reviews = props.reviews;
