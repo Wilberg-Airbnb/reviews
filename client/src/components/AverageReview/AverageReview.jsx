@@ -45,13 +45,13 @@ const AirbnbStar = styled.div`
 const ReviewScore_andy = styled.div`
   #review & {
 
-  font-size: ${({big})=> big? '2.0vmin' : '1.5vmin'};
+  font-size: ${({big})=> big? '2.5vmin' : '2.0vmin'};
   font-weight: ${({big})=> big? 'bold' : 'normal'};
   }
 
   #reviewmodal-root & {
 
-    font-size: ${({big})=> big? '2.0vmin' : '1.5vmin'};
+    font-size: ${({big})=> big? '2.5vmin' : '2.0vmin'};
     font-weight: ${({big})=> big? 'bold' : 'normal'};
     }
 `;
