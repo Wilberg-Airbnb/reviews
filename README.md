@@ -1,4 +1,4 @@
-# Airbnb-Detailed Page Review Service
+# Airbnb-Detailed Page Reviews Service
 
 
 ## Related Projects
@@ -27,6 +27,19 @@
 >To see the fully depolyed version of the website, navigate to http://3.12.169.208:1000/:listingId
 
 - ListingId from 1-99
+
+------
+![](Overall.gif)
+> This is the proxy of all app services rendering together
+------
+
+
+
+
+------
+![](Reviews.gif)
+>This is the Reviews app service
+------
 
 ## Requirements
 
